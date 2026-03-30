@@ -2,15 +2,25 @@ import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 
 async function getProducts() {
-  const res = await fetch("https://fakestoreapi.com/products", {
-    cache: "no-store",
-  });
+  try {
+    const res = await fetch("https://fakestoreapi.com/products", {
+      cache: "no-store",
+    });
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch products");
+    if (!res.ok) {
+      return [];
+    }
+
+    const text = await res.text();
+    if (!text) {
+      return [];
+    }
+
+    const data = JSON.parse(text);
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
   }
-
-  return res.json();
 }
 
 export default async function HomePage() {

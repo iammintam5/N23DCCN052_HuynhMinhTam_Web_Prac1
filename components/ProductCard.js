@@ -24,7 +24,7 @@ export default function ProductCard({ product }) {
         </span>
 
         <Link href={`/product/${product.id}`}>
-          <Button>Add +</Button>
+          <Button>View</Button>
         </Link>
       </div>
     </div>

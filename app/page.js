@@ -30,13 +30,13 @@ export default async function HomePage() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
 
-      <section className="max-w-7xl mx-auto px-6 py-10">
-        <h1 className="text-3xl font-bold mb-2">Product Listing</h1>
-        <p className="text-gray-600 mb-8">
+      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10">
+        <h1 className="mb-2 text-2xl font-bold sm:text-3xl">Product Listing</h1>
+        <p className="mb-8 text-sm text-gray-600 sm:text-base">
           Explore products from FakeStoreAPI
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
           {products.map((item) => (
             <ProductCard key={item.id} product={item} />
           ))}
